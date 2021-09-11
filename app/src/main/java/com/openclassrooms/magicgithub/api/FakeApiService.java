@@ -14,8 +14,7 @@ public class FakeApiService implements ApiService {
      */
     @Override
     public List<User> getUsers() {
-        // TODO: A modifier
-        return null;
+        return this.users;
     }
 
     /**
@@ -24,7 +23,9 @@ public class FakeApiService implements ApiService {
      */
     @Override
     public void generateRandomUser() {
-        // TODO: A modifier
+        double userID = (double)Math.random() * 900;
+        User user = new User(String.valueOf(userID), "Essai " + userID, "http://www.aterplo.fr/wp-content/uploads/2020/03/LOGO-ATERPLO.png");
+        this.users.add(user);
     }
 
     /**
@@ -32,6 +33,6 @@ public class FakeApiService implements ApiService {
      */
     @Override
     public void deleteUser(User user) {
-        // TODO: A modifier
+        this.users.remove(user);
     }
 }
