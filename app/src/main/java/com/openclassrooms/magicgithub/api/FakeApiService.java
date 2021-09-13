@@ -1,7 +1,11 @@
 package com.openclassrooms.magicgithub.api;
 
 import com.openclassrooms.magicgithub.model.User;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
 import static com.openclassrooms.magicgithub.api.FakeApiServiceGenerator.generateUsers;
 
 public class FakeApiService implements ApiService {
@@ -23,9 +27,9 @@ public class FakeApiService implements ApiService {
      */
     @Override
     public void generateRandomUser() {
-        double userID = (double)Math.random() * 900;
-        User user = new User(String.valueOf(userID), "Essai " + userID, "http://www.aterplo.fr/wp-content/uploads/2020/03/LOGO-ATERPLO.png");
-        this.users.add(user);
+        List<User> randomUsers = FakeApiServiceGenerator.getFakeUsersRandom();
+        int randomIndex = new Random().nextInt(randomUsers.size());
+        users.add(randomUsers.get(randomIndex));
     }
 
     /**
