@@ -9,7 +9,7 @@ import static com.openclassrooms.magicgithub.api.FakeApiServiceGenerator.generat
 
 public class FakeApiService implements ApiService {
 
-    private List<User> users = generateUsers();
+    private final List<User> users = generateUsers();
 
     /**
      * Return a list of {@link User}
